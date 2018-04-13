@@ -1,0 +1,127 @@
+*{
+    margin:0;
+    padding:0;
+}
+html,body{
+    height:100%;
+}
+/*startPage*/
+.startPage{
+    width:100%;
+    z-index:999;
+    height:100%;
+    position: absolute;
+    top:0;
+    left:0;
+}
+.startPage .startBtn{
+    background:url('../images/startGame.png') no-repeat center center;
+    background-size:200px auto;
+    width:200px;
+    height:170px;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+    /* top:50%;
+    left:50%;
+    margin-top:-100px;
+    margin-left:-85px; */
+    cursor: pointer;
+}
+.wrapper{
+    width:100%;
+    height:100%;
+    background:url('../images/bg.jpg');
+    background-size:100% 100%;
+    position: relative;
+}
+.left_side{
+    width:24%;
+    height:100%;
+    position: absolute;
+}
+.left_side img{
+    display:none;
+    margin:50px 0 0 50px;
+}
+.main{
+    position: absolute;
+    left:25%;
+    width:50%;
+    height:90%;
+}
+.main .header{
+    width:100%;
+    height:80px;
+    text-align:center;
+}
+.header .score{
+    line-height:80px;
+    color:#ddd;
+    font-size:20px;
+    font-weight:bolder;
+}
+
+.content{
+    position: absolute;
+    left:12%;
+    top:35%;
+    width: 75.8%;
+    height:34.5%;
+}
+.loser{
+    display:none;
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0;
+    left:0;
+}
+.con{
+    background:url('../images/startP.jpg');
+    background-size:100% 100%;
+    width:400px;
+    height:300px;
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    border-radius:10px;
+}
+.close{
+    background:url('../images/closeBtn.png') no-repeat center center;
+    position: absolute;
+    top:0;
+    right:0;
+    width:40px;
+    height:40px;
+    cursor:pointer;
+}
+.loserScore{
+    display:block;
+    width:40px;
+    height:30px;
+    position: absolute;
+    top:42%;
+    left:40%;
+    color:#222;
+    font-size:30px;
+    font-weight:bolder;
+}
+.food{
+    background:url('../images/apple.png') no-repeat center center;
+    background-size:100% 100%;
+}
+.snakehead{
+    background:url('../images/head.png') no-repeat center center;
+    background-size:100% 100%;
+}
+.snakebody{
+    background:url('../images/body.png') no-repeat center center;
+    background-size:100% 100%;
+}
