@@ -49,9 +49,6 @@ function init() {
 function startGame() {
     makeFood();
     makeSnake();
-    // moveSnake = setInterval(function () {
-    //     snakeMove();
-    // }, speed)
     this.isStartGame = false;
 }
 
@@ -145,15 +142,15 @@ function snakeMove() {
         scoreSpan.innerHTML = ++this.score
     }
     //判断蛇是否撞墙 或者 撞到自身
-    var maxX = this.mapW / this.snakeW,
-        maxY = this.mapH / this.snakeH,
+    var maxX = Math.floor(this.mapW / this.snakeW),
+        maxY = Math.floor(this.mapH / this.snakeH),
         snakeHX = this.snake[0][0],
         snakeHY = this.snake[0][1];
     if (snakeHX < 0 || snakeHX >= maxX || snakeHY < 0 || snakeHY >= maxY) {
         reloadGame()
     }
     for (var i = 1; i < this.snake.length; i++) {
-        if (maxX == this.snake[i][0] && maxY == this.snake[i][1]) {
+        if (snakeHX == this.snake[i][0] && snakeHY == this.snake[i][1]) {
             reloadGame()
         }
     }
@@ -197,7 +194,6 @@ function bindEvent() {
         startPage.style.display = 'none';
         imgBtn.style.display = 'block';
         //游戏开始
-        // startGame();
         startAndPause()
     }
     close.onclick = function () {
@@ -215,15 +211,14 @@ function startAndPause() {
         leftImg.src = "./images/pause.png";
         document.onkeydown = (e) => {
             var code = e.keyCode;
-            console.log(code)
             switch (code) {
                 case 37:
                     if (this.left) {
                         this.direction = 'left';
-                        this.left = false;
-                        this.right = false;
                         this.top = true;
                         this.down = true;
+                        this.left = false;
+                        this.right = false;
                     }
                     break;
                 case 38:
@@ -238,10 +233,10 @@ function startAndPause() {
                 case 39:
                     if (this.right) {
                         this.direction = 'right';
-                        this.left = false;
-                        this.right = false;
                         this.top = true;
                         this.down = true;
+                        this.left = false;
+                        this.right = false;
                     }
                     break;
                 case 40:
@@ -278,5 +273,4 @@ function getStyle(demo, prop) {
     } else {
         return window.getComputedStyle(demo, null)[prop];
     }
-
 }
