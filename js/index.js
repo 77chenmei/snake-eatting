@@ -59,8 +59,8 @@ function makeFood() {
     food.style.width = this.foodW + 'px';
     food.style.height = this.foodH + 'px';
     food.style.position = "absolute";
-    this.foodX = Math.floor(Math.random() * (this.mapW / this.foodW));
-    this.foodY = Math.floor(Math.random() * (this.mapH / this.foodH));
+    this.foodX = Math.floor(Math.random() * (this.mapW / this.foodW - 1));
+    this.foodY = Math.floor(Math.random() * (this.mapH / this.foodH - 1));
     food.style.left = this.foodX * this.foodW + 'px';
     food.style.top = this.foodY * this.foodH + 'px';
     content.appendChild(food);
@@ -142,11 +142,11 @@ function snakeMove() {
         scoreSpan.innerHTML = ++this.score
     }
     //判断蛇是否撞墙 或者 撞到自身
-    var maxX = Math.floor(this.mapW / this.snakeW),
-        maxY = Math.floor(this.mapH / this.snakeH),
+    var maxX = Math.ceil(this.mapW / this.snakeW),
+        maxY = this.mapH / this.snakeH,
         snakeHX = this.snake[0][0],
         snakeHY = this.snake[0][1];
-    if (snakeHX < 0 || snakeHX >= maxX || snakeHY < 0 || snakeHY >= maxY) {
+    if (snakeHX < 0 || snakeHX > maxX || snakeHY < 0 || snakeHY > maxY) {
         reloadGame()
     }
     for (var i = 1; i < this.snake.length; i++) {
@@ -253,6 +253,7 @@ function startAndPause() {
         }
         moveSnake = setInterval(function () {
             snakeMove();
+            speed += parseInt(this.score / 5) * 10
         }, speed)
         this.isPause = false;
     } else {
